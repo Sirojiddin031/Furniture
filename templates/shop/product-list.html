@@ -18,7 +18,7 @@
                                     <ol>
                                         <li>
                                             <a href="#">
-                                                <span>Home</span>
+                                                <span>{% trans 'Home' %}</span>
                                             </a>
                                         </li>
                                         <li>
@@ -38,7 +38,7 @@
 
                                         <!-- category menu -->
                                         <div class="sidebar-block">
-                                            <div class="title-block">Categories</div>
+                                            <div class="title-block">{% trans 'Categories' %}</div>
                                             <div class="block-content">
                                                 {% for category in categories %}
                                                     {% if category.parent %}
@@ -69,9 +69,9 @@
 
                                         <!-- best seller -->
                                         <div class="sidebar-block">
-                                            <div class="title-block">Catalog</div>
+                                            <div class="title-block">{% trans 'Catalog' %}</div>
                                             <div class="new-item-content">
-                                                <h3 class="title-product">Sizes</h3>
+                                                <h3 class="title-product">{% trans 'Sizes' %}</h3>
                                                 <ul class="scroll-product">
                                                     {% for size in sizes %}
                                                         <li>
@@ -88,7 +88,7 @@
                                                 </ul>
                                             </div>
                                             <div class="new-item-content">
-                                                <h3 class="title-product">Manufacture</h3>
+                                                <h3 class="title-product">{% trans 'Manufacture' %}</h3>
                                                 <ul class="scroll-product">
                                                     {% for brand in brands %}
                                                         <li>
@@ -105,7 +105,7 @@
                                                 </ul>
                                             </div>
                                             <div class="tiva-filter-price new-item-content sidebar-block">
-                                                <h3 class="title-product">By Price</h3>
+                                                <h3 class="title-product">{% trans 'By Price' %}</h3>
                                                 <div id="block_price_filter" class="block">
                                                     <div class="block-content">
                                                         <div id="slider-range" class="tiva-filter">
@@ -121,7 +121,7 @@
                                                 </div>
                                             </div>
                                             <div class="sidebar-block by-color">
-                                                <h3 class="title-product">By Color</h3>
+                                                <h3 class="title-product">{% trans 'By Color' %}</h3>
                                                 {% for color in colors %}
                                                     <div>
                                                         <span class="left">
@@ -151,14 +151,14 @@
                                         <!-- product tag -->
                                         <div class="sidebar-block product-tags">
                                             <div class="title-block">
-                                                Product Tags
+                                                {% trans 'Product Tags' %}
                                             </div>
                                             <div class="block-content">
                                                 <ul class="listSidebarBlog list-unstyled">
                                                     {% for tag in tags %}
                                                         <li>
                                                             <a onclick="addUrlParameter('tag', {{ tag.id }})"
-                                                               title="Show products matching tag Hot Trend">Hot
+                                                               title="Show products matching tag Hot Trend">{% trans 'Hot' %}
                                                                 {{ tag.title }}</a>
                                                         </li>
                                                     {% endfor %}
@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-8 product-container">
-                                        <h1>Lingving Room</h1>
+                                        <h1>{% trans 'Lingving Room' %}</h1>
                                         <div class="js-product-list-top firt nav-top">
                                             <div class="d-flex justify-content-around row">
                                                 <div class="col col-xs-12 ">
@@ -182,7 +182,7 @@
                                                         </li>
                                                     </ul>
                                                     <div class="hidden-sm-down total-products">
-                                                        <p>There are 12 products.</p>
+                                                        <p>{% trans 'There are 12 products' %}.</p>
                                                     </div>
                                                 </div>
                                                 <div class="col col-xs-12">
@@ -190,7 +190,7 @@
                                                         <div class="products-sort-order dropdown">
                                                             <select onchange="addUrlParameter('sort', this.value)"
                                                                     class="select-title">
-                                                                <option value="">Sort by</option>
+                                                                <option value="">{% trans 'Sort by' %}</option>
                                                                 <option value="title">Name, A to Z</option>
                                                                 <option value="-title">Name, Z to A</option>
                                                                 <option value="price">Price, low to high</option>
@@ -208,7 +208,7 @@
                                                         <div class="item text-center col-md-4">
                                                             <div class="product-miniature js-product-miniature item-one first-item">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.html">
+                                                                    <a href="{% url 'products:detail' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}">
                                                                         <img class="img-fluid image-cover"
                                                                              src="{{ product.image1.url }}"
                                                                              alt="img">
@@ -230,7 +230,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">
+                                                                            <a href="{{ product.id.url }}">
                                                                                 {{ product.title }}
                                                                             </a>
                                                                         </div>
@@ -254,15 +254,20 @@
                                                                               class="formAddToCart">
                                                                             <input type="hidden" name="id_product"
                                                                                    value="1">
-                                                                            <a class="add-to-cart" href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
+                                                                            <a class="add-to-cart"
+                                                                               href="{% url 'orders:add-or-remove-cart' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
                                                                                data-button-action="add-to-cart">
-                                                                                <i {% if request|in_cart:product.id %}style="color: red"{% endif %} class="fa fa-shopping-cart"
+                                                                                <i {% if request|in_cart:product.id %}style="color: red"{% endif %}
+                                                                                   class="fa fa-shopping-cart"
                                                                                    aria-hidden="true"></i>
                                                                             </a>
                                                                         </form>
-                                                                        <a class="addToWishlist" href="#" data-rel="1"
+                                                                        <a class="addToWishlist"
+                                                                           href="{% url 'orders:add-or-remove-wishlist' pk=product.id %}?next={{ request.path }}?{{ request.GET.urlencode }}"
+                                                                           data-rel="1"
                                                                            onclick="">
-                                                                            <i class="fa fa-heart"
+                                                                            <i {% if request|in_wishlist:product.id %}style="color: red"{% endif %}
+                                                                               class="fa fa-heart"
                                                                                aria-hidden="true"></i>
                                                                         </a>
                                                                         <a href="#" class="quick-view hidden-sm-down"
@@ -304,7 +309,7 @@
                                                                                     <span class="info-stock">
                                                                                     <i class="fa fa-check-square-o"
                                                                                        aria-hidden="true"></i>
-                                                                                    In Stock
+                                                                                    {% trans 'In Stock' %}
                                                                                 </span>
                                                                                 </div>
                                                                                 <div class="rating">
@@ -331,8 +336,7 @@
                                                                                     <a class="add-to-cart" href="#"
                                                                                        data-button-action="add-to-cart">
                                                                                         <i class="fa fa-shopping-cart"
-                                                                                           aria-hidden="true"></i>Add to
-                                                                                        cart
+                                                                                           aria-hidden="true"></i>{% trans 'Add to cart' %}
                                                                                     </a>
                                                                                 </form>
                                                                                 <a class="addToWishlist" href="#"
@@ -371,7 +375,7 @@
                                                                     <a rel="prev"
                                                                        onclick="addUrlParameter('page', {{ page_obj.previous_page_number }})"
                                                                        class="previous disabled js-search-link">
-                                                                        Previous
+                                                                        {% trans 'Previous' %}
                                                                     </a>
                                                                 </li>
                                                             {% endif %}
@@ -389,7 +393,7 @@
                                                                     <a rel="next"
                                                                        onclick="addUrlParameter('page', {{ page_obj.next_page_number }})"
                                                                        class="next disabled js-search-link">
-                                                                        Next
+                                                                        {% trans 'Next' %}
                                                                     </a>
                                                                 </li>
                                                             {% endif %}

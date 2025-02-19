@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load order_tags %}
 {% load my_tags %}
 <header>
     <!-- header left mobie -->
@@ -15,7 +16,7 @@
             <div class="mobile-logo">
                 <a href="home.html">
                     <img class="logo-mobile img-fluid" src="{% static 'img/home/logo-mobie.png' %}"
-                         alt="Prestashop_Furnitica">
+                        alt="Prestashop_Furnitica">
                 </a>
             </div>
 
@@ -30,7 +31,7 @@
             <div id="mobile_search_content">
                 <form method="get" action="#">
 
-                    <input type="text" name="s" value="" placeholder="Search">
+                    <input type="text" name="s" value="" placeholder="{% trans 'Search' %}">
                     <button type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -46,40 +47,40 @@
                         <div class="cart-content">
                             <table>
                                 <tbody>
-                                <tr>
-                                    <td class="product-image">
-                                        <a href="shop/product-detail.html">
-                                            <img src="{% static 'img/product/5.jpg' %}" alt="Product">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="product-name">
-                                            <a href="shop/product-detail.html">Organic Strawberry Fruits</a>
-                                        </div>
-                                        <div>
-                                            2 x
-                                            <span class="product-price">£28.98</span>
-                                        </div>
-                                    </td>
-                                    <td class="action">
-                                        <a class="remove" href="#">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="total">
-                                    <td colspan="2">Total:</td>
-                                    <td>£92.96</td>
-                                </tr>
+                                    <tr>
+                                        <td class="product-image">
+                                            <a href="shop/product-detail.html">
+                                                <img src="{% static 'img/product/5.jpg' %}" alt="Product">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div class="product-name">
+                                                <a href="shop/product-detail.html">Organic Strawberry Fruits</a>
+                                            </div>
+                                            <div>
+                                                2 x
+                                                <span class="product-price">£28.98</span>
+                                            </div>
+                                        </td>
+                                        <td class="action">
+                                            <a class="remove" href="#">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td colspan="2">{% trans 'Total' %}:</td>
+                                        <td>£92.96</td>
+                                    </tr>
 
-                                <tr>
-                                    <td colspan="3" class="d-flex justify-content-center">
-                                        <div class="cart-button">
-                                            <a href="shop/product-cart.html" title="View Cart">View Cart</a>
-                                            <a href="shop/product-checkout.html" title="Checkout">Checkout</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="3" class="d-flex justify-content-center">
+                                            <div class="cart-button">
+                                                <a href="shop/product-cart.html" title="View Cart">View Cart</a>
+                                                <a href="shop/product-checkout.html" title="Checkout">Checkout</a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -99,16 +100,16 @@
                                 <a href="#" class="parent">{% trans 'Home' %}</a>
                             </li>
                             <li class="nav-link">
-                                <a href="#" class="parent">{% trans 'Shop' %}</a>
+                                <a href="{% url 'products:list' %}" class="parent">{% trans 'Shop' %}</a>
                             </li>
                             <li class="nav-link">
                                 <a href="{% url 'blogs:list' %}" class="parent">{% trans 'Blogs' %}</a>
                             </li>
                             <li class="nav-link">
-                                <a href="#" class="parent">{% trans 'About' %}</a>
+                                <a href="{% url 'about:about' %}" class="parent">{% trans 'About' %}</a>
                             </li>
                             <li class="nav-link">
-                                <a href="#" class="parent">{% trans 'Contact' %}</a>
+                                <a href="{% url 'pages:contact' %}" class="parent">{% trans 'Contact' %}</a>
                             </li>
                         </ul>
                     </div>
@@ -122,48 +123,48 @@
                         <div class="myaccount-title">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <a href="#acount" data-toggle="collapse" class="acount">
-                                <span>My Account</span>
+                                <span>{% trans 'My Account' %}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div id="acount" class="collapse">
                             <div class="account-list-content">
                                 <div>
-                                    <a class="login" href="auth/user-acount.html" rel="nofollow"
-                                       title="Log in to your customer account">
+                                    <a class="login" href="{% url 'users:account' %}" rel="nofollow"
+                                        title="Log in to your customer account">
                                         <i class="fa fa-cog"></i>
-                                        <span>My Account</span>
+                                        <span>{% trans 'My Account' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="login" href="auth/user-login.html" rel="nofollow"
-                                       title="Log in to your customer account">
+                                    <a class="login" href="{% url 'users:login' %}" rel="nofollow"
+                                        title="Log in to your customer account">
                                         <i class="fa fa-sign-in"></i>
-                                        <span>Sign in</span>
+                                        <span>{% trans 'Sign in' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="register" href="auth/user-register.html" rel="nofollow"
-                                       title="Register Account">
+                                    <a class="register" href="{% url 'users:register' %}" rel="nofollow"
+                                        title="Register Account">
                                         <i class="fa fa-user"></i>
-                                        <span>Register Account</span>
+                                        <span>{% trans 'Register Account' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="check-out" href="shop/product-checkout.html" rel="nofollow"
-                                       title="Checkout">
-                                        <i class="fa fa-check" aria-hidden="true"></i>Checkout
+                                    <a class="check-out" href="{% url 'orders:checkout' %}" rel="nofollow"
+                                        title="Checkout">
+                                        <i class="fa fa-check" aria-hidden="true"></i>{% trans 'Checkout' %}
                                     </a>
                                 </div>
 
                                 <div class="link_wishlist">
-                                    <a href="shop/user-wishlist.html" title="My Wishlists">
+                                    <a href="{% url 'orders:wishlist' %}" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
-                                        <span>My Wishlists</span>
+                                        <span>{% trans 'My Wishlists' %}</span>
                                     </a>
                                 </div>
                                 <div id="desktop_currency_selector"
-                                     class="currency-selector groups-selector hidden-sm-down">
+                                    class="currency-selector groups-selector hidden-sm-down">
                                     <ul class="list-inline">
                                         <li>
                                             <a title="Euro" rel="nofollow" href="#">EUR</a>
@@ -174,30 +175,30 @@
                                     </ul>
                                 </div>
                                 <div id="desktop_language_selector"
-                                     class="language-selector groups-selector hidden-sm-down">
+                                    class="language-selector groups-selector hidden-sm-down">
                                     <ul class="list-inline">
                                         <li class="list-inline-item current">
                                             <a href="#">
                                                 <img class="img-fluid" src="{% static 'img/home/home1-flas.jpg' %}"
-                                                     alt="English" width="16" height="11">
+                                                    alt="English" width="16" height="11">
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
                                             <a href="#">
                                                 <img class="img-fluid" src="{% static 'img/home/home1-flas2.jpg' %}"
-                                                     alt="Italiano" width="16" height="11">
+                                                    alt="Italiano" width="16" height="11">
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
                                             <a href="#">
                                                 <img class="img-fluid" src="{% static 'img/home/home1-flas3.jpg' %}"
-                                                     alt="Français" width="16" height="11">
+                                                    alt="Français" width="16" height="11">
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
                                             <a href="#">
                                                 <img class="img-fluid" src="{% static 'img/home/home1-flas4.jpg' %}"
-                                                     alt="Español" width="16" height="11">
+                                                    alt="Español" width="16" height="11">
                                             </a>
                                         </li>
                                     </ul>
@@ -227,13 +228,14 @@
                     </div>
 
                     <!-- language -->
-                    <div class="desktop-language-selector language-selector groups-selector hidden-sm-down d-flex align-items-center">
+                    <div
+                        class="desktop-language-selector language-selector groups-selector hidden-sm-down d-flex align-items-center">
                         <div class="dropdown-language myaccount-title">
                             <a href="#language" data-toggle="collapse" class="acount">
-                                    <span style="font-size: 18px" class="expand-more">
-                                        {% get_current_language as current_lang %}
-                                        {% get_lang_flag current_lang.0 %}
-                                    </span>
+                                <span style="font-size: 18px" class="expand-more">
+                                    {% get_current_language as current_lang %}
+                                    {% get_lang_flag current_lang.0 %}
+                                </span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -241,11 +243,11 @@
                             <div class="language-list-content">
                                 {% get_available_languages as all_langs %}
                                 {% for l in all_langs %}
-                                    <div class="language-item current flex-first language-list-content">
-                                        <a href="{% get_lang_url request l.0 %}">
-                                            <span>{% get_lang_flag l.0 %} {{ l.1|capfirst }}</span>
-                                        </a>
-                                    </div>
+                                <div class="language-item current flex-first language-list-content">
+                                    <a href="{% get_lang_url request l.0 %}">
+                                        <span>{% get_lang_flag l.0 %} {{ l.1|capfirst }}</span>
+                                    </a>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -262,7 +264,7 @@
                 <div class="col-sm-8 col-md-4 align-items-center">
                     <div class="vertical-header d-flex align-items-center">
                         <div class="dropdown vertical-dropdown has-showmore" data-textshowmore="Show More"
-                             data-textless="Hide" data-desktop_item="5">
+                            data-textless="Hide" data-desktop_item="5">
                             <div data-toggle="collapse" data-target="#show-menu">
                                 <div id="nav_icon3">
                                     <span></span>
@@ -287,8 +289,8 @@
                                 <div class="policy-item">
                                     <div class="policy-content iconpolicy1">
                                         <img src="{% static 'img/home/home1-policy.png' %}" alt="img">
-                                        <div>FREE DELIVERY</div>
-                                        <div>From $ 250</div>
+                                        <div>{% trans 'FREE DELIVERY' %}</div>
+                                        <div>{% trans 'From' %} $ 250</div>
                                     </div>
                                 </div>
                             </div>
@@ -300,8 +302,8 @@
                                 <div class="policy-item">
                                     <div class="policy-content iconpolicy3">
                                         <img src="{% static 'img/home/home1-policy3.png' %}" alt="img">
-                                        <div>MONEY BACK</div>
-                                        <div>GUARANTEED</div>
+                                        <div>{% trans 'MONEY BACK' %}</div>
+                                        <div>{% trans 'GUARANTEED' %}</div>
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +317,7 @@
 
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
                         <input type="text" name="s" value="" placeholder="Search" class="ui-autocomplete-input"
-                               autocomplete="off">
+                            autocomplete="off">
                         <button type="button">
                             <i class="fa fa-search"></i>
                         </button>
@@ -324,46 +326,52 @@
                     <div class="desktop_cart">
                         <div class="blockcart block-cart cart-preview tiva-toggle">
                             <div class="header-cart tiva-toggle-btn">
-                                <span class="cart-products-count">1</span>
+                                <span class="cart-products-count">{% get_product_count request %}</span>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </div>
                             <div class="dropdown-content">
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                        <tr>
-                                            <td class="product-image">
-                                                <a href="shop/product-detail.html">
-                                                    <img src="{% static 'img/product/5.jpg' %}" alt="Product">
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="product-name">
-                                                    <a href="shop/product-detail.html">Organic Strawberry Fruits</a>
-                                                </div>
-                                                <div>
-                                                    2 x
-                                                    <span class="product-price">£28.98</span>
-                                                </div>
-                                            </td>
-                                            <td class="action">
-                                                <a class="remove" href="#">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td colspan="2">Total:</td>
-                                            <td>£92.96</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" class="d-flex justify-content-center">
-                                                <div class="cart-button">
-                                                    <a href="shop/product-cart.html" title="View Cart">View Cart</a>
-                                                    <a href="shop/product-checkout.html" title="Checkout">Checkout</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            {% get_user_cart request as user_cart %}
+                                            {% for product in user_cart %}
+                                            <tr>
+                                                <td class="product-image">
+                                                    <a href="product-detail.html">
+                                                        <img src="{{product.image1.url}}" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="product-name">
+                                                        <a href="product-detail.html">{{ product.title }}</a>
+                                                    </div>
+                                                    <div>
+                                                        1 x
+                                                        <span class="product-price">£{{ product.price }}</span>
+                                                    </div>
+                                                </td>
+                                                <td class="action">
+                                                    <a class="remove" href="#">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            <tr class="total">
+                                                <td colspan="2">Total:</td>
+                                                <td>£{% get_cart_total request %}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3" class="d-flex justify-content-center">
+                                                    <div class="cart-button">
+                                                        <a href="{% url 'orders:cart' %}" title="View Cart">View
+                                                            Cart</a>
+                                                        <a href="{% url 'orders:checkout' %}"
+                                                            title="Checkout">Checkout</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

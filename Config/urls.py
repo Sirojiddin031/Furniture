@@ -20,11 +20,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from about import views
+
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('blogs/', include('blogs.urls', namespace='blogs')),
     path('products/', include('products.urls', namespace='products')),
     path('orders/', include('orders.urls', namespace='orders')),
+    path('users/', include('users.urls', namespace='users')),
+    path('', include('about.urls', namespace='about')),
     path('', include('pages.urls', namespace='pages')),
 )
 

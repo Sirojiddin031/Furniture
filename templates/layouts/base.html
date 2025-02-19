@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <!--[if IE 8 ]>
 <html class="ie ie8" lang="en"> <![endif]-->
@@ -14,7 +15,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% trans "My Website" %}</title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -76,19 +77,19 @@
                             <div class="block-content">
                                 <ul>
                                     <li>
-                                        <a href="#">About Us</a>
+                                        <a href="#">{% trans 'About Us' %}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reasons to shop</a>
+                                        <a href="#">{% trans 'Reasons to shop' %}</a>
                                     </li>
                                     <li>
-                                        <a href="#">What our customers say</a>
+                                        <a href="#">{% trans 'What our customers say' %}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Meet the teaml</a>
+                                        <a href="#">{% trans 'Meet the teaml' %}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact our buyers</a>
+                                        <a href="#">{% trans 'Contact our buyers' %}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -110,7 +111,7 @@
                                 <div class="contact-us">
                                     <div class="title-content">
                                         <i class="fa fa-home" aria-hidden="true"></i>
-                                        <span>Address :</span>
+                                        <span>{% trans 'Address' %} :</span>
                                     </div>
                                     <div class="content-contact address-contact">
                                         <p>123 Suspendis matti, Visaosang Building VST District NY Accums, North
@@ -121,7 +122,7 @@
                                 <div class="contact-us">
                                     <div class="title-content">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <span>Email :</span>
+                                        <span>{% trans 'Email' %} :</span>
                                     </div>
                                     <div class="content-contact mail-contact">
                                         <p>support@domain.com</p>
@@ -130,7 +131,7 @@
                                 <div class="contact-us">
                                     <div class="title-content">
                                         <i class="fa fa-phone" aria-hidden="true"></i>
-                                        <span>Hotline :</span>
+                                        <span>{% trans 'Hotline' %} :</span>
                                     </div>
                                     <div class="content-contact phone-contact">
                                         <p>+0012-345-67890</p>
@@ -139,7 +140,7 @@
                                 <div class="contact-us">
                                     <div class="title-content">
                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span>Opening Hours :</span>
+                                        <span>{% trans 'Opening Hours' %} :</span>
                                     </div>
                                     <div class="content-contact hours-contact">
                                         <p>Monday - Sunday / 08.00AM- 19.00</p>
@@ -152,10 +153,8 @@
                     <div class="tiva-modules col-lg-4 col-md-6">
                         <div class="block m-top">
                             <div class="block-content">
-                                <div class="title-block">Newsletter</div>
-                                <div class="sub-title">Sign up to our newsletter to get the latest articles, lookbooks
-                                    voucher codes direct
-                                    to your inbox
+                                <div class="title-block">{% trans 'Newsletter' %}</div>
+                                <div class="sub-title">{% trans 'Sign up to our newsletter to get the latest articles, lookbooks voucher codes direct to your inbox' %}
                                 </div>
                                 <div class="block-newsletter">
                                     <form action="#" method="post">
@@ -165,7 +164,7 @@
                                             <span class="input-group-btn">
                                                     <button class="effect-btn btn btn-secondary "
                                                             name="submitNewsletter" type="submit">
-                                                        <span>subscribe</span>
+                                                        <span>{% trans 'subscribe' %}</span>
                                                     </button>
                                                 </span>
                                         </div>
@@ -178,7 +177,7 @@
                             <div class="block-content">
                                 <div class="social-content">
                                     <div class="title-block">
-                                        Follow us on
+                                        {% trans 'Follow us on' %}
                                     </div>
                                     <div id="social-block">
                                         <div class="social">
@@ -213,7 +212,7 @@
                             <div class="block-content">
                                 <div class="payment-content">
                                     <div class="title-block">
-                                        Payment accept
+                                        {% trans 'Payment accept' %}
                                     </div>
                                     <div class="payment-image">
                                         <img class="img-fluid" src="{% static 'img/home/payment.png' %}" alt="img">
@@ -889,10 +888,10 @@
                                                     <div class="menu-content">
                                                         <ul>
                                                             <li>
-                                                                <a href="404.html">404 Page</a>
+                                                                <a href="404.html">404 {% trans 'Page' %}</a>
                                                             </li>
                                                             <li>
-                                                                <a href="about-us.html">About Us Page</a>
+                                                                <a href="about-us.html">{% trans 'About Us' %} {% trans 'Page' %}</a>
                                                             </li>
                                                         </ul>
                                                     </div>

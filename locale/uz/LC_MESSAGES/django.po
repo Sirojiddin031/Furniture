@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-13 16:57+0500\n"
+"POT-Creation-Date: 2025-01-20 14:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,38 +15,382 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: blogs/apps.py:8
+#: .\blogs\apps.py:8 .\templates\layouts\home-header.html:105
 msgid "Blogs"
 msgstr "Bloglar"
 
-#: blogs/models.py:6
-msgid "Title"
+#: .\blogs\models.py:11 .\blogs\models.py:28 .\blogs\models.py:60
+msgid "title"
 msgstr "Sarlavha"
 
-#: blogs/models.py:7
-msgid "Created at"
-msgstr "Qo'shilgan vaqti"
+#: .\blogs\models.py:16
+msgid "parent"
+msgstr "Ota"
 
-#: blogs/models.py:10
+#: .\blogs\models.py:23
+msgid "blog category"
+msgstr "Blog toifasi"
+
+#: .\blogs\models.py:24
+msgid "blog categories"
+msgstr "Blog toifalari"
+
+#: .\blogs\models.py:34
+msgid "blog tag"
+msgstr "Blog tegi"
+
+#: .\blogs\models.py:35
+msgid "blog tags"
+msgstr "Blog teglar"
+
+#: .\blogs\models.py:39
+msgid "first_name"
+msgstr "Ismi"
+
+#: .\blogs\models.py:40
+msgid "last_name"
+msgstr "Familyasi"
+
+#: .\blogs\models.py:41
+msgid "avatar"
+msgstr "Avatari"
+
+#: .\blogs\models.py:54
+msgid "blog author"
+msgstr "Blog muallifi"
+
+#: .\blogs\models.py:55
+msgid "blog authors"
+msgstr "Blog mualliflari"
+
+#: .\blogs\models.py:59
+msgid "image"
+msgstr "Rasm"
+
+#: .\blogs\models.py:61
+msgid "description"
+msgstr "Tavsif"
+
+#: .\blogs\models.py:66
+msgid "authors"
+msgstr "Mualliflar"
+
+#: .\blogs\models.py:71
+msgid "categories"
+msgstr "Toifalar"
+
+#: .\blogs\models.py:77
+msgid "tags"
+msgstr "Teglar"
+
+#: .\blogs\models.py:84 .\blogs\models.py:100
 msgid "blog"
-msgstr "blog"
+msgstr "Blog"
 
-#: blogs/models.py:11
+#: .\blogs\models.py:85
 msgid "blogs"
-msgstr "bloglar"
+msgstr "Bloglar"
 
-#: templates/home3.html:165
-msgid ""
-"\n"
-"                                    <a href=\"#\" class=\"parent\">Blog</a>\n"
-"                                "
-msgstr ""
-"\n"
-"                                    <a href=\"#\" class=\"parent\">Bloglar</a>\n"
-"                                "
+#: .\blogs\models.py:89
+msgid "comment"
+msgstr "Sharh"
 
-#: templates/home3.html:257
+#: .\blogs\models.py:94
+msgid "user"
+msgstr "Foydalanuvchi"
+
+#: .\blogs\models.py:107
+msgid "blog comment"
+msgstr "Blog sharhi"
+
+#: .\blogs\models.py:108
+msgid "blog comments"
+msgstr "Blog sharhlari"
+
+#: .\templates\layouts\base.html:18
+msgid "My Website"
+msgstr "Mening saytim"
+
+#: .\templates\layouts\home-header.html:99
+msgid "Home"
+msgstr "Uy"
+
+#: .\templates\layouts\home-header.html:102
+msgid "Shop"
+msgstr "Market"
+
+#: .\templates\layouts\home-header.html:290
+msgid "FREE DELIVERY"
+msgstr "BEKOR YETKAZIB BERISH"
+
+#: .\templates\layouts\home-header.html:291
+msgid "From"
+msgstr "dan"
+
+#: .\templates\layouts\home-header.html:303
+msgid "MONEY BACK"
+msgstr "PUL QAYTARISH"
+
+#: .\templates\layouts\home-header.html:304
+msgid "GUARANTEED"
+msgstr "KAFOLAT"
+
+#: .\templates\layouts\home-header.html:142
+msgid "Sign in"
+msgstr "Tizimga kirish"
+
+#: .\templates\layouts\home-header.html:149
+msgid "Register Account"
+msgstr "Ro'yxatdan o'tish"
+
+msgid "Account"
+msgstr "Akkaunt"
+
+msgid "Total"
+msgstr "Jami"
+
+msgid "Create Account"
+msgstr "Akkaunt Yaratish"
+
+
+#: .\templates\layouts\home-header.html:155
+msgid "Checkout"
+msgstr "Ro'yxatdan chiqarish"
+
+#: .\templates\layouts\home-header.html:162
+msgid "My Wishlists"
+msgstr "Mening istaklarim"
+
+#: .\templates\layouts\home-header.html:125
+msgid "My Account"
+msgstr "Mening akkauntim"
+
+#: .\templates\layouts\home-header.html:33
+msgid "Search"
+msgstr "Qidirish"
+
+#: .\templates\layouts\home-header.html:574
+msgid "Creative"
+msgstr "Ijodiy"
+
+#: .\templates\layouts\home-header.html:565
+msgid "Modern"
+msgstr "Zamonaviy"
+
+#: .\templates\layouts\home-header.html:565
+msgid "Designer"
+msgstr "Dizayner"
+
+#: .\templates\layouts\home-header.html:565
+msgid "Chair"
+msgstr "Stul"
+
+#: .\templates\layouts\home-header.html:631
+msgid "Living Room"
+msgstr "Mehmonxona"
+
+#: .\templates\layouts\home-header.html:636
+msgid "New Arrivals"
+msgstr "Yangi kelganlar"
+
+#: .\templates\layouts\home-header.html:639
+msgid "Best Seller"
+msgstr "Eng ko'p sotilgan"
+
+#: .\templates\layouts\home-header.html:642
+msgid "Featured Product"
+msgstr "Tavsiya etilgan mahsulot"
+
+msgid "Recent Posts"
+msgstr "Oxirgi xabarlar"
+
+msgid "Categories"
+msgstr "Toifalar"
+
+msgid "13 comment"
+msgstr "13 sharh"
+
+msgid "Reasons to shop"
+msgstr "Xarid qilish uchun sabablar"
+
+msgid "What our customers say"
+msgstr "Bizning mijozlarimiz nima deyishadi"
+
+msgid "Meet the teaml"
+msgstr "Jamoa bilan tanishing"
+
+msgid "Contact our buyers"
+msgstr "Xaridorlarimiz bilan bog'laning"
+
+
+msgid "Address"
+msgstr "Manzil"
+
+
+msgid "Developer"
+msgstr "Dasturchi"
+
+msgid "Front-end Developer"
+msgstr "Front-end Dasturchi"
+
+msgid "Web developer"
+msgstr "Web Dasturchi"
+
+msgid "Designer - Stylish"
+msgstr "Dizayner - zamonaviy"
+
+
+msgid "Email"
+msgstr "Pochta"
+
+
+msgid "Sofa"
+msgstr "Divan"
+
+
+msgid "Login"
+msgstr "Tizimga kirish"
+
+msgid "Forgot your password"
+msgstr "Parolni unutdingizmi"
+
+
+msgid "Related Products"
+msgstr "Tegishli mahsulotlar"
+
+msgid "Description"
+msgstr "Tavsif"
+
+
+msgid "Reviews"
+msgstr "Sharhlar"
+
+msgid "Availability"
+msgstr "Mavjudligi"
+
+msgid "IN STOCK"
+msgstr "SOTUVDA MAVJUD"
+
+msgid "Hotline"
+msgstr "Ishonchtelefoni"
+
+msgid "Opening Hours"
+msgstr "Ish Vaqti"
+
+msgid "Lingving Room"
+msgstr "Dam olish xonasi"
+
+
+msgid "There are 12 products"
+msgstr "12 ta mahsulot bor"
+
+
+
+msgid "April"
+msgstr "Aprel"
+
+msgid "Previous"
+msgstr "Oldingi"
+
+msgid "Next"
+msgstr "Keyingi"
+
+msgid "Blog Tags"
+msgstr "Blog teglar"
+
+msgid "Page"
+msgstr "Sahifa"
+
+msgid "Deal Of The Day"
+msgstr "Kunning taklifi"
+
+msgid "Hurry Up, The Same Time Is Not Extended"
+msgstr "Shoshiling, vaqt uzaytirilmaydi"
+
+msgid "kitchen"
+msgstr "Oshxona"
+
+msgid "Newsletter"
+msgstr "Axborot byulleteni"
+
+msgid "Follow us on"
+msgstr "Bizni kuzatib boring"
+
+
+msgid "Payment accept"
+msgstr "Tolovni qabul qilish"
+
+
+msgid "Sign up to our newsletter to get the latest articles, lookbooks voucher codes direct to your inbox"
+msgstr "Oxirgi maqolalar, lookbooks vaucher kodlarini bevosita pochta qutingizga olish uchun axborot byulletenimizga obuna bo'ling."
+
+msgid "subscribe"
+msgstr "Obuna bo'ling"
+
 msgid "Contact US"
+msgstr "Biz bilan aloqa"
+
+msgid "Contact"
 msgstr "Aloqa"
+
+msgid "Send message"
+msgstr "Xabar yuborish"
+
+
+msgid "About Us"
+msgstr "Biz Haqimizda"  
+
+msgid "WHO WE ARE"
+msgstr "BIZ KIMMIZ"
+
+msgid "WHAT WE DO"
+msgstr "BIZ NIMA QILAMIZ"
+
+msgid "MEET OUR TEAM"
+msgstr "BIZ BILAN UCHRASHISH"
+
+
+msgid "Catalog"
+msgstr "Katalog"
+
+msgid "Sizes"
+msgstr "O'lchamlari"
+
+msgid "Manufacture"
+msgstr "Ishlab Chiqarish"
+
+msgid "By Price"
+msgstr "To'lov Orqali"
+
+msgid "By Color"
+msgstr "Rang Orqali"
+
+msgid "Product Tags"
+msgstr "Mahsulot Teglari"
+
+
+
+#: .\templates\layouts\home-header.html:575
+msgid "Furniture"
+msgstr "Mebel"
+
+#: .\templates\layouts\home-header.html:576
+msgid "Design"
+msgstr "Dizayn"
+
+#: .\templates\layouts\home-header.html:108
+msgid "About"
+msgstr "Haqida"
+
+#~ msgid "Created at"
+#~ msgstr "Qo'shilgan vaqti"
+
+#~ msgid ""
+#~ "                                    <a href=\"#\" class=\"parent\">Blog</"
+#~ "a>\n"
+#~ "                                "
+#~ msgstr ""
+#~ "                                    <a href=\"#\" class=\"parent\">Bloglar</a>\n"
+#~ "                                "

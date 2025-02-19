@@ -1,5 +1,8 @@
 {% load static %}
+{% load i18n %}
 {% load order_tags %}
+{% load my_tags %}
+
 <header>
     <!-- header left mobie -->
     <div class="header-mobile d-md-none">
@@ -27,9 +30,9 @@
         <!-- search -->
         <div id="mobile_search" class="d-flex">
             <div id="mobile_search_content">
-                <form method="get" action="{% url 'products:list' %}">
+                <form method="get" action="#">
 
-                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search">
+                    <input type="text" name="s" value="" placeholder="Search">
                     <button type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -67,15 +70,15 @@
                                     </td>
                                 </tr>
                                 <tr class="total">
-                                    <td colspan="2">Total:</td>
+                                    <td colspan="2">{% trans 'Total' %}:</td>
                                     <td>£92.96</td>
                                 </tr>
 
                                 <tr>
                                     <td colspan="3" class="d-flex justify-content-center">
                                         <div class="cart-button">
-                                            <a href="product-cart.html" title="View Cart">View Cart</a>
-                                            <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                            <a href="{% url 'orders:cart' %}" title="View Cart">Vi Cart</a>
+                                            <a href="{% url 'orders:checkout' %}" title="Checkout">Checkout</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -106,29 +109,10 @@
                     <div class="menu navbar collapse navbar-collapse">
                         <ul class="menu-top navbar-nav">
                             <li>
-                                <a href="#" class="parent">Home</a>
-                                <div class="dropdown-menu">
-                                    <ul>
-                                        <li class="item">
-                                            <a href="index-2.html" title="Home Page 1">Home Page 1</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="home2.html" title="Home Page 2">Home Page 2</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="home3.html" title="Home Page 3">Home Page 3</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="home4.html" title="Home Page 4">Home Page 4</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="home5.html" title="Home Page 5">Home Page 5</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <a href="{% url 'pages:home' %}" class="parent">{% trans 'Home' %}</a>
                             </li>
                             <li class="nav-link">
-                                <a href="#" class="parent">Blog</a>
+                                <a href="{% url 'blogs:list' %}" class="parent">{% trans 'Blog' %}</a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
@@ -158,14 +142,14 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="#" class="parent">Page</a>
+                                <a href="{% url 'products:list' %}" class="parent">{% trans 'Page' %}</a>
                                 <div class="dropdown-menu drop-tab">
                                     <ul>
                                         <li class="item container group">
                                             <div class="dropdown-menu dropdown-tab">
                                                 <ul>
                                                     <li class="item col-md-4 float-left">
-                                                        <span class="menu-title">Category Style</span>
+                                                        <span class="menu-title">{% trans 'Category Style' %}</span>
                                                         <div class="menu-content">
                                                             <ul class="col">
                                                                 <li>
@@ -217,17 +201,18 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="contact.html" class="parent">Contact US</a>
+                                <a href="{% url 'pages:contact' %}" class="parent">{% trans 'Contact US' %}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
+
                 <!-- search and acount -->
                 <div class="col-sm-5 col-md-5 d-flex align-items-center justify-content-end" id="search_widget">
-                    <form method="get" action="{% url 'products:list' %}">
+                    <form method="get" action="#">
+
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search"
-                               class="ui-autocomplete-input"
+                        <input type="text" name="s" value="" placeholder="Search" class="ui-autocomplete-input"
                                autocomplete="off">
                         <button type="submit">
                             <i class="fa fa-search"></i>
@@ -238,7 +223,7 @@
                         <div class="myaccount-title ">
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>Account</span>
+                                <span>{% trans 'Account' %}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
 
@@ -249,36 +234,36 @@
                             <div class="account-list-content">
 
                                 <div>
-                                    <a class="login" href="user-acount.html" rel="nofollow"
+                                    <a class="login" href="{% url 'users:account' %}" rel="nofollow"
                                        title="Log in to your customer account">
                                         <i class="fa fa-cog"></i>
-                                        <span>My Account</span>
+                                        <span>{% trans 'My Account' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="login" href="user-login.html" rel="nofollow"
+                                    <a class="login" href="{% url 'users:login' %}" rel="nofollow"
                                        title="Log in to your customer account">
                                         <i class="fa fa-sign-in"></i>
-                                        <span>Sign in</span>
+                                        <span>{% trans 'Sign in' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="register" href="user-register.html" rel="nofollow"
+                                    <a class="register" href="{% url 'users:register' %}" rel="nofollow"
                                        title="Register Account">
                                         <i class="fa fa-user"></i>
-                                        <span>Register Account</span>
+                                        <span>{% trans 'Register Account' %}</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="check-out" href="product-checkout.html" rel="nofollow" title="Checkout">
+                                    <a class="check-out" href="{% url 'orders:checkout' %}" rel="nofollow" title="Checkout">
                                         <i class="fa fa-check" aria-hidden="true"></i>
-                                        <span>Checkout</span>
+                                        <span>{% trans 'Checkout' %}</span>
                                     </a>
                                 </div>
                                 <div class="link_wishlist">
-                                    <a href="user-wishlist.html" title="My Wishlists">
+                                    <a href="{% url 'orders:wishlist' %}" title="My Wishlists">
                                         <i class="fa fa-heart"></i>
-                                        <span>My Wishlists</span>
+                                        <span>{% trans 'My Wishlists' %}</span>
                                     </a>
                                 </div>
                                 <div id="desktop_currency_selector"
@@ -339,7 +324,7 @@
                                         <tr>
                                             <td class="product-image">
                                                 <a href="product-detail.html">
-                                                    <img src="{{ product.image1.url }}" alt="Product">
+                                                    <img src="{{product.image1.url}}" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
@@ -366,8 +351,8 @@
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="product-cart.html" title="View Cart">View Cart</a>
-                                                    <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                    <a href="{% url 'orders:cart' %}" title="View Cart">View Cart</a>
+                                                    <a href="{% url 'orders:checkout' %}" title="Checkout">Checkout</a>
                                                 </div>
                                             </td>
                                         </tr>

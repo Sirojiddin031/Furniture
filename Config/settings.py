@@ -1,15 +1,17 @@
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-66ypr!856k3#7n#e#s(fabqglu-a!!!5c+%!wg&d6q)ekr23^$'
+SECRET_KEY = 'django-insecure-abc1234567890abcdefg'
+
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["furniture-website-zgdi.onrender.com", "127.0.0.1", "localhost"]
-
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'modeltranslation',
@@ -25,6 +27,8 @@ INSTALLED_APPS = [
     'blogs',
     'products',
     'orders',
+    'about',  
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -32,7 +36,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Til sozlamalari uchun
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,10 +65,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Config.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -102,10 +107,25 @@ STATIC_ROOT = BASE_DIR / 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'assets/']
 
 if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@example.com'
+AUTH_USER_MODEL = 'users.CustomUser'
+
+# settings.py fayli
+WSGI_APPLICATION = 'Config.wsgi.application'
+

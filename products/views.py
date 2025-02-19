@@ -8,7 +8,7 @@ class ProductListView(ListView):
     template_name = 'shop/product-list.html'
     model = ProductModel
     context_object_name = "products"
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
         products = ProductModel.objects.all()
@@ -19,6 +19,7 @@ class ProductListView(ListView):
         tag = self.request.GET.get('tag')
         q = self.request.GET.get('q')
         sort = self.request.GET.get('sort')
+
         if cat:
             products = products.filter(categories=cat)
         if size:
@@ -33,8 +34,13 @@ class ProductListView(ListView):
             products = products.filter(
                 Q(title__icontains=q) | Q(short_description__icontains=q)
             )
-        if sort in ('title', '-title', 'price', '-price',):
+
+        # Agar sort parametri berilmasa, standart tartiblash qo'llaniladi
+        if sort in ('title', '-title', 'price', '-price'):
             products = products.order_by(sort)
+        else:
+            # Standart tartiblash (masalan, yaratilgan vaqt bo'yicha teskari tartibda)
+            products = products.order_by('-created_at')
 
         return products
 

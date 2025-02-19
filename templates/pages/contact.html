@@ -15,12 +15,12 @@
                             <ol>
                                 <li>
                                     <a href="#">
-                                        <span>Home</span>
+                                        <span>{% trans 'Home' %}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span>Contact</span>
+                                        <span>{% trans 'Contact' %}</span>
                                     </a>
                                 </li>
                             </ol>
@@ -42,7 +42,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-right d-flex">
-                                                    <div class="title">Email:</div>
+                                                    <div class="title">{% trans 'Email' %}:</div>
                                                     <div class="contact-content">
                                                         <a href="mailto:support@domain.com">support@domain.com</a>
                                                         <br>
@@ -59,7 +59,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-right d-flex">
-                                                    <div class="title">Address:</div>
+                                                    <div class="title">{% trans 'Address' %}:</div>
                                                     <div class="contact-content">
                                                         23 Suspendis matti, Visaosang Building
                                                         <br>District, NY Accums, North American
@@ -75,7 +75,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-right d-flex">
-                                                    <div class="title">Hotline:</div>
+                                                    <div class="title">{% trans 'Hotline' %}:</div>
                                                     <div class="contact-content">
                                                         0123-456-78910
                                                         <br>0987-654-32100
@@ -140,7 +140,7 @@
                                                         <button class="btn" type="submit" name="submitMessage">
                                                             <img class="img-fl"
                                                                  src="{% static 'img/other/contact_email.png' %}"
-                                                                 alt="img">Send message
+                                                                 alt="img">{% trans 'Send message' %}
                                                         </button>
                                                     </div>
                                                 </form>

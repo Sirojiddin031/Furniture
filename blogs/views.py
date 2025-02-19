@@ -12,3 +12,4 @@ class BlogListView(ListView):
         context = super().get_context_data(**kwargs)
         context["categories"] = BlogCategoryModel.objects.all()
         return context
+
