@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-abc1234567890abcdefg'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["furniture-website-zgdi.onrender.com", "127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
     'modeltranslation',
